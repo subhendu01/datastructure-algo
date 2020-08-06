@@ -1,14 +1,13 @@
-# datastructure_algo
-### Measuring Bubble Sort’s Big O Runtime Complexity
-Your implementation of bubble sort consists of two nested for loops in which the algorithm performs n - 1 comparisons, then n - 2 comparisons, and so on until the final comparison is done. This comes at a total of (n - 1) + (n - 2) + (n - 3) + … + 2 + 1 = n(n-1)/2 comparisons, which can also be written as ½n2 - ½n.
+### Measuring Insertion Sort’s Big O Runtime Complexity
+Similar to bubble sort implementation, the insertion sort algorithm has a couple of nested loops that go over the list. The inner loop is pretty efficient because it only goes through the list until it finds the correct position of an element. That said, the algorithm still has an O(n2) runtime complexity on the average case.
+The worst case happens when the supplied array is sorted in reverse order. In this case, the inner loop has to execute every comparison to put every element in its correct position. This still gives you an O(n2) runtime complexity.
+The best case happens when the supplied array is already sorted. Here, the inner loop is never executed, resulting in an O(n) runtime complexity, just like the best case of bubble sort.
+Although bubble sort and insertion sort have the same Big O runtime complexity, in practice, insertion sort is considerably more efficient than bubble sort. If you look at the implementation of both algorithms, then you can see how insertion sort has to make fewer comparisons to sort the list.
 
-You learned earlier that Big O focuses on how the runtime grows in comparison to the size of the input. That means that, in order to turn the above equation into the Big O complexity of the algorithm, you need to remove the constants because they don’t change with the input size.
-
-Doing so simplifies the notation to n2 - n. Since n2 grows much faster than n, this last term can be dropped as well, leaving bubble sort with an average- and worst-case complexity of O(n2).
-
-In cases where the algorithm receives an array that’s already sorted—and assuming the implementation includes the already_sorted flag optimization explained before—the runtime complexity will come down to a much better O(n) because the algorithm will not need to visit any element more than once.
-
-O(n), then, is the best-case runtime complexity of bubble sort. But keep in mind that best cases are an exception, and you should focus on the average case when comparing different algorithms.
+### Analyzing the Strengths and Weaknesses of Insertion Sort
+Just like bubble sort, the insertion sort algorithm is very uncomplicated to implement. Even though insertion sort is an O(n2) algorithm, it’s also much more efficient in practice than other quadratic implementations such as bubble sort.
+There are more powerful algorithms, including merge sort and quicksort, but these implementations are recursive and usually fail to beat insertion sort when working on small lists. Some quicksort implementations even use insertion sort internally if the list is small enough to provide a faster overall implementation. Timsort also uses insertion sort internally to sort small portions of the input array.
+That said, insertion sort is not practical for large arrays, opening the door to algorithms that can scale in more efficient ways.
 
 ### for more info
 https://realpython.com/sorting-algorithms-python/
